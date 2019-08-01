@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var index = require('../controllers/indexCtrl');
+var signup = require('../controllers/SignUpCtrl');
 
-router.get('/', index.Get);
+router.get('/', signup.Get);
 
 module.exports = router;
