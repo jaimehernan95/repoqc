@@ -1,5 +1,72 @@
-extends layout
+doctype html
+html(lang="en")
+    head
 
-block content
-  h1= title
-  p Welcome to #{title}
+        title Pug Training
+        link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+        link(rel='stylesheet',type='text/css', href='/stylesheets/style.css')
+        link(rel='stylesheet', type='text/css', href='https://use.fontawesome.com/releases/v5.7.0/css/all.css')
+        link(rel='stylesheet', href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap")
+        
+        script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js")
+
+    body
+
+        include includes/header
+
+        div
+            link(type="text/css", rel="stylesheet", href="https://cdn.quantconnect.com/web/css/libraries/prettify.tomorrownight.css")
+
+            div(id="first-block")
+                div(class="col-xs-12 block-container")
+                    div(class="first-block-text")
+                        h1 Pioneering Tomorrow's Trading
+                        h3 Research, Backtest and Trade Your Investments
+                        button(type="button", class="btn btn-default btn-lg", onclick="$('.sign-up-form').fadeIn('slow'); $(this).hide();") Sign Up For Free
+                //- div(class="col-xs-12 sign-up-form") 
+                //-     form(role="form", id="signup-dialog", action="/index.php?key=processSignUp&target=terminal" method="POST")
+                //-         input(type="hidden", name="plan", value="free")
+                //-         div(class="form-group")
+                //-             div(class="row")
+                //-                 div(class="col-xs-12")
+                //-                     div(class="login-social")
+                //-                         div(class="h2-title text-left") Sign Up using a social network:
+                //-                         br
+                //-                         p(class="text-center", style="line-height:45px")
+                //-                             a(href="https://www.quantconnect.com/processFacebook2/terminal", class="login-btn login-btn-facebook") Sign up with Facebook
+                //-                             a(href="https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=https%3A%2F%2Fwww.quantconnect.com%2FprocessGoogle&client_id=510945655446-8ksbldb4jops9uiim0laa2l73lr8qi7t.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&access_type=offline&approval_prompt=auto", class="login-btn login-btn-google") Sign Up with Google
+                //-         hr
+                //-         div(class="form-group")
+                //-             div(class="row")
+                //-                 div(class="col-md-12") Or create an account below:
+                //-         div(class="form-group")
+                //-             label(class="modal-signup" for="name") First and Last Name
+                //-             div(class="input-group")
+                //-                 span(class="input-group-addon") 
+                //-                     i(class="glyphicon glyphicon-user")
+                //-                 input(type="text", class="form-control name", id="signup-modal-name", name="name", placeholder="Enter your real name" required)
+                //-         div(class="form-group")
+                //-             label(class="modal-signup" for="email") Email Address
+                //-             div(class="input-group")
+                //-                 span(class="input-group-addon") 
+                //-                     i(class="glyphicon glyphicon-envelope")
+                //-                 input(type="email", class="form-control email", id="signup-modal-email", name="email", placeholder="Enter your email address" required)
+                //-         div(class="form-group")
+                //-             label(class="modal-signup" for="password") Password
+                //-             div(class="input-group")
+                //-                 span(class="input-group-addon") 
+                //-                     i(class="glyphicon glyphicon-lock")
+                //-                 input(type="password", onchange="$('.g-recaptcha').show();", oninput="$('.g-recaptcha').show();", class="form-control password", id="signup-modal-password", name="password", placeholder="Password of at least 6 characters" required)
+                //-         div(class="row")
+                //-             div(class="g-recaptcha" style="display: none;" data-sitekey="")
+                //-                 div(style="width: 304px; height: 78px")
+                //-                     div
+                //-                         //- iframe(src="https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LeljyQUAAAAALl6umXd6o99_NZv5Y5BLBDzNhm3&co=aHR0cHM6Ly93d3cucXVhbnRjb25uZWN0LmNvbTo0NDM.&hl=en&v=v1563777128698&size=normal&cb=yokkopyiek1f", class="g-recaptcha-response", width="304", height="78", role="presentation", name="a-bzdoplnhexfi", frameborder="0", scrolling="no", sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox")
+                //-                         //- textarea(id="g-recaptcha-response", name="g-recaptcha-response", class="g-recaptcha-response")
+                //-         div(class="form-group signup-modal-errors" style="margin-top: 15px")
+                //-             div(class="row")
+                //-                 div(class="col-md-12", id="signup-modal-errors")
+                //-         p(class="signup-button" style="text-align: right;")
+                //-             input(type="submit", class="btn btn-lg btn-warning", value="Signup", style="margin-top:15px;")

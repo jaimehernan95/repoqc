@@ -1,0 +1,40 @@
+header()
+    nav(class="nav navbar-expand-sm navbar-dark fixed-top", style="background-color: black")
+        a(class="navbar-header", id="logo", href="https://www.quantconnect.com/", title="QuantConnect - Democratizing Finance, Empowering Individuals")
+            img(src="https://www.quantconnect.com/i/logo.png", width="200")
+        button(class="navbar-toggler", data-toggle="collapse", data-target="#collapsibleNavbar", aria-expanded="false")
+            span(class="navbar-toggler-icon")
+        div(class="collapse navbar-collapse", id="collapsibleNavbar")
+            ul(class="nav navbar-nav ml-auto")
+                li(class="nav-item active")
+                    a(href="/", title="Go back to Home Page", class="nav-link") Home
+                li(class="nav-item")
+                    a(href="https://www.quantconnect.com/market", title="Alpha Streams", style="color: #f0ad4e", class="nav-link")
+                        img(src="https://cdn.quantconnect.com/web/i/alpha/alpha_header_rev0.png" style="position: relative;")
+                        span  Alpha Market
+                li(class="nav-item")
+                    a(href="https://www.quantconnect.com/forum/", title="Get help and discuss latest quant matters in the community forums.", class="nav-link") Community
+                li(class="nav-item")
+                    a(href="https://www.quantconnect.com/terminal/", title="Backtest your algorithms on historical data.", class="nav-link") Lab
+                li(class="nav-item")
+                    a(href="https://www.quantconnect.com/login", title="Research enviroment using dynamic code excecution", class="nav-link") Research
+                li(class="nav-item")
+                    a(href="https://www.quantconnect.com/docs/home/home", title="Learn more about how to make the most of QuantConnect in the documentation", class="nav-link") Docs
+                li(class="nav-item dropdown")
+                    a(href="#", title="Sign In to QuantConnect", class="nav-link dropdown-toggle", data-toggle="dropdown", role="button")
+                        span(class="fa fa-lock" style="padding-right:5px")
+                        .
+                            SignIn
+                    ul(class="dropdown-menu dropdown-menu-right", style="background-color:black;")
+                        li(class="dropdown-item dropdown-item-right")
+                            a(class="option", title="Sign in with Facebook", href="https://www.quantconnect.com/processFacebook2/terminal")
+                                img(src="https://cdn.quantconnect.com/web/i/signUpWithFacebook.png", id="loginFacebook", alt="Sign In with Facebook")
+                            br
+                            a(class="option", title="Sign in with Google", href="https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=https%3A%2F%2Fwww.quantconnect.com%2FprocessGoogle&client_id=510945655446-8ksbldb4jops9uiim0laa2l73lr8qi7t.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&access_type=offline&approval_prompt=auto")
+                                img(src="https://cdn.quantconnect.com/web/i/signUpWithGoogle.png", id="loginGoogle", alt="Sign In with Google")
+                            span(style="display: block;width: 100%;text-align:center; color: white; margin-left: -7px;") Or Sign In Manually
+                            div(style="height: 40px; width: 170px;")
+                                a(class="option", href="https://www.quantconnect.com/terminal", title="Sign Up to QuantConnect", style="float: left;left:0;")
+                                    button(type="button", class="btn btn-warning btn-sm") Sign Up
+                                a(class="option", href="https://www.quantconnect.com/login?target=Web", title="Sign Up to QuantConnect", style="float: left;margin-left:5px;")
+                                    button(type="submit", class="btn btn-default btn-sm") Sign In
