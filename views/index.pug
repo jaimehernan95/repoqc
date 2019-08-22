@@ -3,70 +3,522 @@ html(lang="en")
     head
 
         title Pug Training
+        meta(name="viewport", content="width=device-width, initial-scale=1")
         link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
         link(rel='stylesheet',type='text/css', href='/stylesheets/style.css')
+        link(rel='stylesheet',type='text/css', href='/stylesheets/bootstrap-social.css')
         link(rel='stylesheet', type='text/css', href='https://use.fontawesome.com/releases/v5.7.0/css/all.css')
         link(rel='stylesheet', href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap")
+        link(rel='stylesheet', type='text/css', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
         
-        script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js")
+        script(src="https://code.jquery.com/jquery-3.4.1.js")
+        script(src="/javaScript/calc.js")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js")
 
     body
 
         include includes/header
-
-        div
-            link(type="text/css", rel="stylesheet", href="https://cdn.quantconnect.com/web/css/libraries/prettify.tomorrownight.css")
-
-            div(id="first-block")
-                div(class="col-xs-12 block-container")
-                    div(class="first-block-text")
-                        h1 Pioneering Tomorrow's Trading
-                        h3 Research, Backtest and Trade Your Investments
-                        button(type="button", class="btn btn-default btn-lg", onclick="$('.sign-up-form').fadeIn('slow'); $(this).hide();") Sign Up For Free
-                //- div(class="col-xs-12 sign-up-form") 
-                //-     form(role="form", id="signup-dialog", action="/index.php?key=processSignUp&target=terminal" method="POST")
-                //-         input(type="hidden", name="plan", value="free")
-                //-         div(class="form-group")
-                //-             div(class="row")
-                //-                 div(class="col-xs-12")
-                //-                     div(class="login-social")
-                //-                         div(class="h2-title text-left") Sign Up using a social network:
-                //-                         br
-                //-                         p(class="text-center", style="line-height:45px")
-                //-                             a(href="https://www.quantconnect.com/processFacebook2/terminal", class="login-btn login-btn-facebook") Sign up with Facebook
-                //-                             a(href="https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=https%3A%2F%2Fwww.quantconnect.com%2FprocessGoogle&client_id=510945655446-8ksbldb4jops9uiim0laa2l73lr8qi7t.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&access_type=offline&approval_prompt=auto", class="login-btn login-btn-google") Sign Up with Google
-                //-         hr
-                //-         div(class="form-group")
-                //-             div(class="row")
-                //-                 div(class="col-md-12") Or create an account below:
-                //-         div(class="form-group")
-                //-             label(class="modal-signup" for="name") First and Last Name
-                //-             div(class="input-group")
-                //-                 span(class="input-group-addon") 
-                //-                     i(class="glyphicon glyphicon-user")
-                //-                 input(type="text", class="form-control name", id="signup-modal-name", name="name", placeholder="Enter your real name" required)
-                //-         div(class="form-group")
-                //-             label(class="modal-signup" for="email") Email Address
-                //-             div(class="input-group")
-                //-                 span(class="input-group-addon") 
-                //-                     i(class="glyphicon glyphicon-envelope")
-                //-                 input(type="email", class="form-control email", id="signup-modal-email", name="email", placeholder="Enter your email address" required)
-                //-         div(class="form-group")
-                //-             label(class="modal-signup" for="password") Password
-                //-             div(class="input-group")
-                //-                 span(class="input-group-addon") 
-                //-                     i(class="glyphicon glyphicon-lock")
-                //-                 input(type="password", onchange="$('.g-recaptcha').show();", oninput="$('.g-recaptcha').show();", class="form-control password", id="signup-modal-password", name="password", placeholder="Password of at least 6 characters" required)
-                //-         div(class="row")
-                //-             div(class="g-recaptcha" style="display: none;" data-sitekey="")
-                //-                 div(style="width: 304px; height: 78px")
-                //-                     div
-                //-                         //- iframe(src="https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LeljyQUAAAAALl6umXd6o99_NZv5Y5BLBDzNhm3&co=aHR0cHM6Ly93d3cucXVhbnRjb25uZWN0LmNvbTo0NDM.&hl=en&v=v1563777128698&size=normal&cb=yokkopyiek1f", class="g-recaptcha-response", width="304", height="78", role="presentation", name="a-bzdoplnhexfi", frameborder="0", scrolling="no", sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox")
-                //-                         //- textarea(id="g-recaptcha-response", name="g-recaptcha-response", class="g-recaptcha-response")
-                //-         div(class="form-group signup-modal-errors" style="margin-top: 15px")
-                //-             div(class="row")
-                //-                 div(class="col-md-12", id="signup-modal-errors")
-                //-         p(class="signup-button" style="text-align: right;")
-                //-             input(type="submit", class="btn btn-lg btn-warning", value="Signup", style="margin-top:15px;")
+        //-  
+        div(id="first-block" class="d-flex flex-wrap align-content-center align-item-center justify-content-center")
+            div(class="block-container")
+                div(class="first-block-text text-center")
+                    h1(class="text-white") Pioneering Tomorrow's Trading
+                    h3(class="text-white") Research, Backtest and Trade Your Investments
+                    br
+                    p
+                        button(type="button", class="btn btn-default btn-lg btnSignUp", onclick="$('.sign-up-form').fadeIn('slow'); $(this).hide();") Sign Up For Free
+                div(class="col-xs-12 sign-up-form mx-auto" style="display: none;") 
+                    form(role="form", id="signup-dialog", action="/index.php?key=processSignUp&target=terminal" method="POST")
+                        input(type="hidden", name="plan", value="free")
+                        div(class="form-group")
+                            div(class="row")
+                                div(class="col-md-12")
+                                    div(class="login-social")
+                                        div(class="h2-title text-left") Sign Up using a social network:
+                                        br
+                                        div(class="row")
+                                            div(class="col-md-6")
+                                                a(type="button", href="https://www.quantconnect.com/processFacebook2/terminal", class="btn btn-block btn-social btn-sm btn-facebook")
+                                                    i(class="fa fa-facebook")
+                                                    |Sign up with Facebook
+                                            div(class="col-md-6")
+                                                a(href="https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=https%3A%2F%2Fwww.quantconnect.com%2FprocessGoogle&client_id=510945655446-8ksbldb4jops9uiim0laa2l73lr8qi7t.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&access_type=offline&approval_prompt=auto", class="btn btn-block btn-social btn-sm btn-google")
+                                                    i(class="fa fa-google")
+                                                    |Sign up with Google
+                        hr
+                        div(class="form-group")
+                            div(class="row")
+                                div(class="col-md-12") Or create an account below:
+                        div(class="form-group")
+                            label(class="modal-signup" for="name") First and Last Name
+                            div(class="input-group")
+                                input(type="text", class="form-control name", id="signup-modal-name", name="name", placeholder="Enter your real name" required)
+                        div(class="form-group")
+                            label(class="modal-signup" for="email") Email Address
+                            div(class="input-group")
+                                input(type="email", class="form-control email", id="signup-modal-email", name="email", placeholder="Enter your email address" required)
+                        div(class="form-group")
+                            label(class="modal-signup" for="password") Password
+                            div(class="input-group")
+                                input(type="password", onchange="$('.g-recaptcha').show();", oninput="$('.g-recaptcha').show();", class="form-control password", id="signup-modal-password", name="password", placeholder="Password of at least 6 characters" required)
+                        div(class="row")
+                            div(class="g-recaptcha" style="display: none;" data-sitekey="")
+                                div(style="width: 304px; height: 78px")
+                                    div
+                                        //- iframe(src="https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LeljyQUAAAAALl6umXd6o99_NZv5Y5BLBDzNhm3&co=aHR0cHM6Ly93d3cucXVhbnRjb25uZWN0LmNvbTo0NDM.&hl=en&v=v1563777128698&size=normal&cb=yokkopyiek1f", class="g-recaptcha-response", width="304", height="78", role="presentation", name="a-bzdoplnhexfi", frameborder="0", scrolling="no", sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox")
+                                        //- textarea(id="g-recaptcha-response", name="g-recaptcha-response", class="g-recaptcha-response")
+                        div(class="form-group signup-modal-errors" style="margin-top: 15px")
+                            div(class="row")
+                                div(class="col-md-12", id="signup-modal-errors")
+                        p(class="signup-button" style="text-align: right;")
+                            input(type="submit", class="btn btn-lg btn-warning", value="Signup", style="margin-top:15px;")
+        div(id="second-block" class="d-flex flex-wrap align-content-center align-item-center justify-content-center")
+            div(class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2 block-container center")
+                h2(id="second-block-h2") How does it work?
+                br
+                br
+                h4(id="second-block-h3") Build Algorithms in a Browser IDE, Using Template Strategies and Free Data
+                p. 
+                    Design and test your strategy on our free data and when you're ready deploy it live to your brokerage. Code in multiple programming languages and harness our cluster of hundreds of servers to run your backtest to analyse your strategy in Equities, FX, CFD, Options or Futures Markets.
+                br
+                br
+                br
+                p.
+                    QuantConnect is the next revolution in quant trading, combining cloud computing and open data access.
+                br
+                br
+            div(class="col-xs-12 col-xs-offset-1 col-lg-8 col-lg-offset-2 characteristics")
+                div(class="row")
+                    div(class="col-md-4", align="middle")
+                        img(src="https://cdn.quantconnect.com/web/i/unparalleled_speed.png")
+                        h4(style="font-weight: bold") Unparalleled Speed
+                        p.
+                            Harness our server farm for institutional speeds from your desktop computer. You can iterate on your ideas faster than you've ever done before.
+                    div(class="col-md-4", align="middle")
+                        img(src="https://cdn.quantconnect.com/web/i/massive_data.png")
+                        h4(style="font-weight: bold") Massive Data Library
+                        p.
+                            We provide a massive free 400TB tick resolution data library covering US Equities, Options, Futures, Fundamentals, CFD and Forex since 1998.
+                    div(class="col-md-4", align="middle")
+                        img(src="https://cdn.quantconnect.com/web/i/unparalleled_speed.png")
+                        h4(style="font-weight: bold") World Class Execution
+                        p Our live trading algorithms are co-located next to the market servers in Equinix (NY7) for resilent, secure and lightening fast execution to the markets.
+            div(class="col-xs-12 call-to-action")
+                div(class="row")
+                    div(class="col-md-10", style="align-self: center")
+                        h3 Have Some great ideas? Lets test it out!   
+                    div(class="col-md-2", style="align-self: center")
+                        button(type="button", class="btn btn-lg btn-warning") Start your algorithm
+        div(id="third-block" class="d-flex flex-wrap align-content-center align-item-center justify-content-center")
+            div(class="col-md-12 col-xs-offset-1 col-lg-8 col-lg-offset-2 block-container center")
+                div(class="col-md-12", align="middle")
+                    h2(style="margin-top: 100px") Professional Quality, Open Data Library
+                    p Design strategies with our carefully curated data library, spanning global markets, from tick to daily resolution. Data is updated almost daily so you can backtest on the very latest data possible, and survivorship bias free.
+                    br
+                    br
+                    div(class="row")
+                        div(class="col-md-4" style="text-align: left")
+                            h4 Equities
+                            p We offer Equities tick data going back to January 1998 for every symbol traded, totaling over 29,000 stocks. Price is provided by 
+                                span(style="color: orange") QuantQuote
+                                | .
+                            p In addition; we have 
+                                span(style="color: orange") Morning Star Fundamental 
+                                | data for the most popular 8,000 symbols for 900+ indicators since 1998.
+                            h4 Futures
+                            p We offer futures tick trade and quote data from January 2009 to present, for every contract traded in CME, COMEX and GLOBEX. Data is updated weekly and is provided by 
+                                span(style="color: orange") AlgoSeek
+                                | .
+                        div(class="col-md-4" style="text-align: left")
+                            h4 Crypto, Forex & CFD
+                            p We lead the world with crypto algorithmic trading on 
+                                span(style="color: orange") GDAX 
+                                | in addition to offering 100 currency and 70 CFD contracts covering every major economy provided by 
+                                span(style="color: orange") FXCM 
+                                | and 
+                                span(style="color: orange") OANDA
+                                |. All data is available at tick resolution, starts April 2007 and is updated daily.
+                            br
+                            h4(style="margin-top: 15px") Options
+                            p We offer option trades and quotes down to minute resolution, for every option traded on ORPA since 2007, covering millions of contracts. Data is updated within 48-hours and is provided by 
+                                span(style="color: orange") AlgoSeek
+                                | .
+                        div(class="col-md-4" style="text-align: left;")
+                            br
+                            div(class="row")
+                                div(class="col-md-4")
+                                    img(src="https://cdn.quantconnect.com/web/i/multi_terabyte.png")
+                                div(class="col-md-8")
+                                    p Use Our 400TB Library Or Import External Sources
+                            br
+                            br
+                            br
+                            div(class="row")
+                                div(class="col-md-4")
+                                    img(src="https://cdn.quantconnect.com/web/i/global_markets.png")
+                                div(class="col-md-8", style="align-self: center")
+                                    p Data Spans Global Markets
+                            br
+                            br
+                            br
+                            div(class="row")
+                                div(class="col-md-4")
+                                    img(src="https://cdn.quantconnect.com/web/i/worth_100000.png")
+                                div(class="col-md-8", style="align-self: center")
+                                    p Worth Over $100,000
+            div(class="col-xs-12 call-to-action")
+                div(class="row")
+                    div(class="col-md-10", style="align-self: center")
+                        h3 Download FX and CFD Data For Free - Explore Our Data Library 
+                    div(class="col-md-2")
+                        button(href="https://www.quantconnect.com/terminal", type="button", class="btn btn-lg btn-warning") Sign Up Today
+        div(id="fourth-block" class="d-flex flex-wrap align-content-center align-item-center justify-content-center")
+            div(class="col-xs-10 col-xs-offset-1 col-lg-offset-2 col-lg-8 block-container")
+                div(class="row" style="margin-top: 200px; margin-bottom: 200px")
+                    div(class="col-md-5")
+                        img(src="https://cdn.quantconnect.com/web/i/team_icon.png")
+                        br
+                        br
+                        h4 Team Collaboration
+                        br
+                        p Find new friends in the community and collaborate together with our team-coding feature! Share projects and see their code instantly as they type. You can even grant live access and control the live algorithm together. Use our internal instant messaging to find prospective team members to join forces!
+                    div(class="col-md-2")
+                    div(class="col-md-5")
+                        img(src="https://cdn.quantconnect.com/web/i/potential_icon.png")
+                        br
+                        br
+                        h4 Secure Intellectual Property
+                        br
+                        p Our focus is to give you the best possible algorithmic trading platform and protect your valuable intellectual property. We will always be an infrastructure and technology provider first. When you're ready for live trading we'll happily help you execute through your broker of choice.
+        div(id="fifth-block", class="d-flex flex-wrap align-content-center align-item-center justify-content-center")
+            div(class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2 block-container center")
+                div(class="col-md-12")
+                    div(class="row", align="middle")
+                        div(style="margin-top: 50px")
+                            h2 Execute Through Leading Brokerages
+                            br
+                            p We've integrated with world leading brokerages to provide the best execution and lowest fees to the community.
+                    div(class="row", style="margin-top: 100px", align="left")
+                        div(class="row row-eq-height")
+                            div(class="col-md-6")
+                                div(class="brokerage")
+                                    p
+                                        img(src="https://cdn.quantconnect.com/web/i/interactive.png", class="img-fluid")
+                                    p
+                                        span(class="badge badge-light") EQUITY 
+                                        span(class="badge badge-light") FOREX 
+                                        span(class="badge badge-light") FUTURES 
+                                        span(class="badge badge-light") OPTIONS 
+                                    p
+                                        h3(style="color: orange") $1 MINIMUM, $0.005/SHARE
+                                    p An industry titan Interactive Brokers provides access to Equities, Futures and Options market all with one account and some of the lowest fees in the industry.
+                            div(class="col-md-6")
+                                div(class="brokerage")
+                                    p
+                                        img(src="https://cdn.quantconnect.com/web/i/fxcm.png", class="img-fluid")
+                                    p
+                                        span(class="badge badge-light") EQUITY 
+                                        span(class="badge badge-light") FOREX 
+                                        span(class="badge badge-light") FUTURES 
+                                        span(class="badge badge-light") OPTIONS 
+                                    p
+                                        h3(style="color: orange") From £0.07 Per Lot
+                                    
+                                    p With low spread and direct market access FXCM provides access to FX with transparent fees, excellent fills and a low opening deposit.
+                                    a(href="https://www.quantconnect.com/fxcm", class="btn btn-light btn-lg") View More
+                    div(class="row", style="margin-top: 10px", align="left")
+                        div(class="row row-eq-height")
+                            div(class="col-md-6")
+                                div(class="brokerage")
+                                    p
+                                        img(src="https://cdn.quantconnect.com/web/i/oanda.png", class="img-fluid")
+                                    p 
+                                        span(class="badge badge-light") FOREX 
+                                        span(class="badge badge-light") CFD  
+                                    p
+                                        h3(style="color: orange") Spread Fees
+                                    p Founded in 1995, OANDA provides access to FX and CFD's with spread based fees covering all major global markets.
+                            div(class="col-md-6")
+                                div(class="brokerage")
+                                    p
+                                        img(src="https://cdn.quantconnect.com/web/i/coinbase_pro_rev0.png", class="img-fluid")
+                                    p
+                                        span(class="badge badge-light") CRYPTO 
+                                    p
+                                        h3(style="color: orange") Trade Crypto Currencies
+                                    p Trade Bitcoin, Etherum and LiteCoin on a fully regulated U.S. based exchange.
+                    div(class="row", style="margin-top: 10px", align="left")
+                        div(class="row row-eq-height")
+                            div(class="col-md-6")
+                                div(class="brokerage")
+                                    p
+                                        img(src="https://cdn.quantconnect.com/web/i/logo.png", class="img-fluid")
+                                    p 
+                                        span(class="badge badge-light") FOREX 
+                                        span(class="badge badge-light") CFD  
+                                        span(class="badge badge-light") EQUITY  
+                                        span(class="badge badge-light") CRYPTO   
+                                    p
+                                        h3(style="color: orange") Paper Trading
+                                    p With QuantConnect™ Paper Trading, you can simulate live market conditions, modeling fees and orders fills to test your strategy before putting it live.
+                            div(class="col-md-6")
+                                div(class="brokerage")
+                                    p
+                                        img(src="https://cdn.quantconnect.com/web/i/bitfinex_black_text_rev0.png", class="img-fluid")
+                                    p
+                                        span(class="badge badge-light") CRYPTO 
+                                    p
+                                        h3(style="color: orange") Trade Crypto Currencies
+                                    p Full-featured trading platform for major digital assets & cryptocurrencies.
+            div(class="col-xs-12 call-to-action")
+                div(class="row")
+                    div(class="col-md-10", style="align-self: center")
+                        h3 World Leading Brokerage Execution     
+                    div(class="col-md-2")
+                        button(href="https://www.quantconnect.com/terminal", type="button", class="btn btn-lg btn-warning") Trade Live
+        div(id="sixth-block", class="d-flex flex-wrap align-content-center align-item-center justify-content-center")
+                div(class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2 block-container center")
+                    div(class="col-md-12")
+                        div(class="row", align="middle")
+                            div(style="margin-top: 50px")
+                                h2 Supported Brokerages
+                                br
+                                p Thanks to our brokerage partners we can offer free live trading for FXCM Brokerage and OANDA Brokerage clients, allowing you to backtest and trade your strategy entirely for free.
+                    div(class="col-md-12")
+                        div(class="row", align="middle")
+                            table(class="table table-striped")
+                                thead(class="text-center")
+                                    td(class="align-middle") Brokerage
+                                    td(class="align-middle") Free Live Trading
+                                    td(class="align-middle") Equities
+                                    td(class="align-middle") Forex
+                                    td(class="hidden-xs align-middle") Crypto
+                                    td(class="hidden-xs align-middle") CFD
+                                    td(class="hidden-xs align-middle") Options
+                                    td(class="hidden-xs align-middle") Futures
+                                    td(class="hidden-xs align-middle hidden-sm") Data Download
+                                tbody
+                                    tr
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/Interactive%20Brokers%20Brokerage.png", style="max-width: 130px;")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                    tr
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/OANDA%20Brokerage.png", style="max-width: 130px;")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                    tr
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/FXCM%20Brokerage.png", style="max-width: 130px;")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                    tr
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/GDAX.png", style="max-width: 130px;")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                    tr
+                                        td
+                                            strong.
+                                                Paper Trading
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                    tr
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/alpaca_rev0.png", style="max-width: 130px;")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                    tr
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/bitfinex_black_text.rev0.png", style="max-width: 130px;")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/ticket.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+                                        td
+                                            img(src="https://cdn.quantconnect.com/web/i/splash/cross.png")
+        div(id="seventh-block", class="d-flex flex-wrap align-content-center align-item-center justify-content-center")
+                div(class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2 block-container")
+                    div(class="row")
+                        div(class="col-xs-12 col-md-6 seventh-text")
+                            img(src="https://cdn.quantconnect.com/web/i/splash/code_icon.png")
+                            h2 Event Driven Strategies
+                            p Designing an algorithm couldn't be easier. There are only two required functions and we take care of everything else! You just 
+                                span(style="color: red") Initialize() 
+                                | your strategy and handle the data-events you requested.
+                                Initialize() your strategy and handle the data-events you requested.
+                            p You can create new indicators, classes, folders and files with a web based full C# compiler and auto-complete. We are committed to giving you the best possible algorithm design experience.
+                        div(class="col-md-1 d-flex")
+                            img(src="https://cdn.quantconnect.com/web/i/splash/code_circle.png", class="justify-content-center align-self-center")
+                        div(class="col-xs-12 col-md-5 seventh-code")
+        div(id="eight-block", class="d-flex flex-wrap align-content-center align-item-center justify-content-center")
+            div(class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2 block-container center")
+                div(class="col-md-12")
+                    div(class="row", align="middle")
+                        div(style="margin-top: 50px")
+                            h1(class="eight-text") Leverage Your Potential
+                            br
+                            p(align="left") Through 
+                                a(href="https://www.quantconnect.com/alpha") Alpha Streams™ 
+                                |, QuantConnect enables you to license your algorithms to world-leading funds. Your algorithms are hosted in our secure, cloud platform and the signals are distributed for funds to license.
+                                img(src="https://cdn.quantconnect.com/web/i/splash/rising_capitalpng.png", style="width: 80%")
+                                p(align="left") Alpha Streams is the worlds' first global alpha marketplace, connecting you with funds to license your ideas. Join the alpha revolution!
+        div(id="ninth-block", class="d-flex flex-wrap align-content-center align-item-center justify-content-center")
+            div(class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2 block-container center")
+                div(class="col-md-12")
+                    div(class="row", align="middle")
+                        div(style="margin-top: 50px")
+                            h1(class="ninth-text") Join Our Community
+                            br
+                            p We have one of the largest quantitative trading communities in the world, building, sharing and discussing strategies through our community. Converse with some of the brightest minds in the world as we explore new realms of science, mathematics and finance.
+                            h1(class="ninth-text")
+                                a(href="https://www.quantconnect.com/terminal/", style="color: orange") JOIN 84,200+ Quants
+                            div(class="col-xs-12 call-to-action")
+                div(class="row")
+                    div(class="col-md-8", style="align-self: center")
+                        h3 Join QuantConnect for Free 
+                    div(class="col-md-4")
+                        button(href="https://www.quantconnect.com/terminal", type="button", class="btn btn-lg btn-warning") Algorithm Lab
+        div(class="footer-wrapper" style="margin-top: 25px")
+            footer(class="d-flex flex-wrap align-content-center align-item-center justify-content-center")
+                div(class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2")
+                    div(class="row")
+                        div(class="col-xs col-md-4 logo-column")
+                            img(src="https://cdn.quantconnect.com/web/i/splash/quantconnect_logo_byw.png", class="logo")
+                            p(style="color: orange; font-size: 16px;") QuantConnect™ 2019. All Rights Reserved
+                        div(class="col-md-8 links-columns")
+                            div(class="row")
+                                div(class="col-xs-6 col-md-4 col-md-offset-1 col-lg-offset-1 col")
+                                    br
+                                    p Technology
+                                    ul(class="list-unstyled")
+                                        li
+                                            a(href="https://www.quantconnect.com/terminal/") Algorithm Lab
+                                        li
+                                            a(href="https://www.quantconnect.com/docs") Documentation
+                                        li
+                                            a(href="https://www.quantconnect.com/forum") Community
+                                        li
+                                            a(href="https://www.quantconnect.com/tutorials/home/home") Tutorials
+                                        li
+                                            a(href="https://www.quantconnect.com/data/tree") Data Library
+                                        li
+                                            a(href="https://www.quantconnect.com/status/") System Status
+                                div(class="col-xs-6 col-md-4 col-lg-4 col")
+                                    br
+                                    p About
+                                    ul(class="list-unstyled")
+                                        li
+                                            a(href="https://www.quantconnect.com/about") About
+                                        li
+                                            a(href="https://www.quantconnect.com/blog/") Our Blog
+                                        li
+                                            a(href="https://www.quantconnect.com/contact") Contact
+                                        li
+                                            a(href="https://www.quantconnect.com/pricing") Pricing
+                                        li
+                                            a(href="https://www.quantconnect.com/terms") Terms & Conditions
+                                        li
+                                            a(href="https://www.quantconnect.com/privacy") Privacy Policy
+                                div(class="hidden-sm hidden-xs col-md-3 col")
+                                    br
+                                    p Open Source
+                                    ul(class="list-unstyled")
+                                        li
+                                            a(href="https://www.quantconnect.com/lean/") LEAN
