@@ -4,8 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var Validator = require('jsonschema').Validator;
-
 var indexRouter = require('./routes/index');
 var LoginRouter = require('./routes/login');
 var SignUpRouter = require('./routes/signup');
@@ -25,48 +23,6 @@ admin.initializeApp({
 
 //database reference
 let db = admin.firestore();
-
-
-//User Object schema
-var v = new Validator(); //Schema validator using jsonschema
-
-var userSchema = {
-  "id": "/UserSchema",
-  "type": "object",
-  "title": "User Object",
-  "properties": {
-    "name": {
-      "$id" : "#/properties/name",
-      "type": "string",
-      "title": "Name Schema",
-      "default": ""
-    },
-    "e-mail": {
-      "$id" : "#/properties/email",
-      "type": "string",
-      "title": "E-mail Schema",
-      "default": ""
-    },
-    "consumer": {
-      "$id" : "#/properties/consumer",
-      "type": "boolean",
-      "title": "Consumer Schema",
-      "default": false
-    },
-    "business": {
-      "$id" : "#/properties/business",
-      "type": "boolean",
-      "title": "Business Schema",
-      "default": false
-    },
-    "contact number": {
-      "$id" : "#/properties/contact number",
-      "type": "string",
-      "title": "Contact Number Schema",
-      "default": ""
-    },
-  }
-};
 
 //Create a new collection and a document using the following example code.
 //TODO - Alter code to read and display instead
